@@ -5,6 +5,9 @@ const app = express();
 const authRoutes = require("./Routes/AuthRoutes");
 const cookieParser = require("cookie-parser");
 
+const bodyParser =  require('body-parser');
+const postRoutes = require('./Routes/posts.js') ;
+
 app.listen(4000, ()=>{
     console.log("Server Started with pord 4000");
 
@@ -26,7 +29,10 @@ app.use(cors({
     credentials:true,
 })
 );
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 
 app.use(cookieParser());
 app.use(express.json());
-app.use("/", authRoutes);
+app.use("/", authRoutes); 
+app.use('/posts', postRoutes);

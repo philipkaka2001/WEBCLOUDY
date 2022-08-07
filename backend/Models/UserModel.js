@@ -10,6 +10,25 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: [true, "Password is required"],
     },
+    name:{
+        type: String,
+        require: true,
+        
+    },
+    gioitinh:{
+        type: String,
+        require: true,
+        
+    },
+    lop:{
+        type: String,
+        require: true,
+        
+    },
+    phone:{
+        type: Number,
+        require: true
+    }
         
 });
 
